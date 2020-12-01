@@ -8,29 +8,37 @@ using System.IO;
 namespace AdventD01 {
     class Program {
         static void Main(string[] args) {
-            List<int> data = new List<int>();
+            var data = new HashSet<int>();
             try {
                 using (var sr = new StreamReader("data.txt")) {
                     while (!sr.EndOfStream) {
-                        data.Add(Convert.ToInt32(sr.ReadLine()));
+                        data.Add(int.Parse(sr.ReadLine()));
                     }
                 }
+
                 // PART 1
-                for (int i = 0; i < data.Count; i++) {
-                    for (int j = i + 1; j < data.Count; j++) {
-                        if (data[i] + data[j] == 2020) {
-                            Console.WriteLine(data[i] * data[j]);
-                        }
+                foreach (int a in data) {
+                    int b = 2020 - a;
+                    if (data.Except(new[] {a}).Contains(b)) {
+                        Console.WriteLine(a * b);
+                        break;
                     }
                 }
+
                 // PART 2
-                for (int i = 0; i < data.Count; i++) {
-                    for (int j = i + 1; j < data.Count; j++) {
-                        for (int k = j + 1; k < data.Count; k++) {
-                            if (data[i] + data[j] + data[k] == 2020) {
-                                Console.WriteLine(data[i] * data[j] * data[k]);
-                            }
+                bool found = false;
+                foreach (int i in data) {
+                    int a = 2020 - i;
+                    foreach (int j in data.Except(new[] {i})) {
+                        int b = a - j;
+                        if (data.Except(new[] {i,j}).Contains(b)) {
+                            Console.WriteLine(i * j * b);
+                            found = true;
+                            break;
                         }
+                    }
+                    if (found) {
+                    break;
                     }
                 }
             }
