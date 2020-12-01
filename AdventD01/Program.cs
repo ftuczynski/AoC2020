@@ -15,6 +15,7 @@ namespace AdventD01 {
                         data.Add(Convert.ToInt32(sr.ReadLine()));
                     }
                 }
+                // PART 1
                 for (int i = 0; i < data.Count; i++) {
                     for (int j = i + 1; j < data.Count; j++) {
                         if (data[i] + data[j] == 2020) {
@@ -22,9 +23,7 @@ namespace AdventD01 {
                         }
                     }
                 }
-                
                 // PART 2
-                //Console.WriteLine(data.Where(o => 0 < data.FirstOrDefault(c => data.Contains(2020 - o - c))).Aggregate(1, (o, c) => o * c));  //from internet MEGAMINDS
                 for (int i = 0; i < data.Count; i++) {
                     for (int j = i + 1; j < data.Count; j++) {
                         for (int k = j + 1; k < data.Count; k++) {
