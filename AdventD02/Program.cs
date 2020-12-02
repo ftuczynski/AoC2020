@@ -16,14 +16,21 @@ namespace AdventD02 {
                     }
                 }
                 //PART 1
-                int valid = 0;
+                int valid1 = 0;
                 foreach(var a in data) {
                     var line = new Line(a);
-                    if (line.IsValid())
-                        valid++;
+                    if (line.PartOneIsValid())
+                        valid1++;
                 }
-                Console.WriteLine("PART 1: " + valid);
+                Console.WriteLine("PART 1: " + valid1);
                 //PART 2
+                int valid2 = 0;
+                foreach(var a in data) {
+                    var line = new Line(a);
+                    if (line.PartTwoIsValid())
+                        valid2++;
+                }
+                Console.WriteLine("PART 2: " + valid2);
             }
             catch (IOException e) {
                 Console.WriteLine("The file could not be read:");

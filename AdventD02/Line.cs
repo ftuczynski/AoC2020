@@ -7,24 +7,29 @@ using System.Threading.Tasks;
 namespace AdventD02 {
     class Line {
         private readonly char[] delimiterChars = { ' ','-',':' };
-        public int MinLimit { get; }
-        public int MaxLimit { get; }
+        public int FirstDigit { get; }
+        public int SecondDigit { get; }
         public char Char { get; }
         public string Text { get; }
 
         public Line(string line) {
             string[] lines = line.Split(delimiterChars);
-            MinLimit = int.Parse(lines[0]);
-            MaxLimit = int.Parse(lines[1]);
+            FirstDigit = int.Parse(lines[0]);
+            SecondDigit = int.Parse(lines[1]);
             Char = char.Parse(lines[2]);
             Text = lines[4];
         }
 
-        public bool IsValid() {
+        public bool PartOneIsValid() {
             int count = Text.Length - Text.Replace(Char.ToString(), "").Length;
-            if(count >= MinLimit && count <= MaxLimit) {
+            if(count >= FirstDigit && count <= SecondDigit)
                 return true;
-            }
+            return false;
+        }
+        public bool PartTwoIsValid() {
+            char[] text = Text.ToArray();
+            if (text[FirstDigit - 1] == Char ^ text[SecondDigit - 1] == Char)
+                return true;
             return false;
         }
     }
