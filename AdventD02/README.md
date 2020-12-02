@@ -35,3 +35,5 @@ Given the same example list from above:
 2-9 c: ccccccccc is invalid: both position 2 and position 9 contain c.  
 
 How many passwords are valid according to the new interpretation of the policies?
+
+Puzzle Input: https://adventofcode.com/2020/day/2/input
