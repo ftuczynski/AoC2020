@@ -19,7 +19,7 @@ namespace AdventD01 {
                 // PART 1
                 foreach (int a in data) {
                     int b = 2020 - a;
-                    if (data.Except(new[] {a}).Contains(b)) {
+                    if (data.Except(new[] { a }).Contains(b)) {
                         Console.WriteLine(a * b);
                         break;
                     }
@@ -29,16 +29,16 @@ namespace AdventD01 {
                 bool found = false;
                 foreach (int i in data) {
                     int a = 2020 - i;
-                    foreach (int j in data.Except(new[] {i})) {
+                    foreach (int j in data.Except(new[] { i })) {
                         int b = a - j;
-                        if (data.Except(new[] {i,j}).Contains(b)) {
+                        if (data.Except(new[] { i, j }).Contains(b)) {
                             Console.WriteLine(i * j * b);
                             found = true;
                             break;
                         }
                     }
                     if (found) {
-                    break;
+                        break;
                     }
                 }
             }
