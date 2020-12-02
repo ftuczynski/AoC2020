@@ -22,15 +22,12 @@ namespace AdventD02 {
 
         public bool PartOneIsValid() {
             int count = Text.Length - Text.Replace(Char.ToString(), "").Length;
-            if(count >= FirstDigit && count <= SecondDigit)
-                return true;
-            return false;
+            return count >= FirstDigit && count <= SecondDigit;
+
         }
         public bool PartTwoIsValid() {
             char[] text = Text.ToArray();
-            if (text[FirstDigit - 1] == Char ^ text[SecondDigit - 1] == Char)
-                return true;
-            return false;
+            return text[FirstDigit - 1] == Char ^ text[SecondDigit - 1] == Char;
         }
     }
 }
