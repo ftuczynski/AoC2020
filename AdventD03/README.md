@@ -55,3 +55,4 @@
 </ul>
 <p>In the above example, these slopes would find <code>2</code>, <code>7</code>, <code>3</code>, <code>4</code>, and <code>2</code> tree(s) respectively; multiplied together, these produce the answer <code><em>336</em></code>.</p>
 <p><em>What do you get if you multiply together the number of trees encountered on each of the listed slopes?</em></p>
+  <p>Puzzle input: https://adventofcode.com/2020/day/3/input </p>
